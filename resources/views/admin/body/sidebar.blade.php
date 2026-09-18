@@ -57,9 +57,9 @@
           </a>
           <div class="collapse" id="sidebarAuth">
             <ul class="nav-second-level">
-              {{-- <li>
+              <li>
                 <a href="{{ route('all.brand') }}" class="tp-link">All Brand</a>
-              </li> --}}
+              </li>
             </ul>
           </div>
         </li>
@@ -72,11 +72,11 @@
           </a>
           <div class="collapse" id="WareHouse">
             <ul class="nav-second-level">
-              {{-- <li>
+              <li>
                 <a href="{{ route('all.warehouse') }}" class="tp-link"
                   >All WareHouses</a
                 >
-              </li> --}}
+              </li>
             </ul>
           </div>
         </li>
@@ -89,11 +89,11 @@
           </a>
           <div class="collapse" id="Supplier">
             <ul class="nav-second-level">
-              {{-- <li>
+              <li>
                 <a href="{{ route('all.supplier') }}" class="tp-link"
                   >All Supplier</a
                 >
-              </li> --}}
+              </li>
             </ul>
           </div>
         </li>
@@ -106,11 +106,11 @@
           </a>
           <div class="collapse" id="Customer">
             <ul class="nav-second-level">
-              {{-- <li>
+              <li>
                 <a href="{{ route('all.customer') }}" class="tp-link"
                   >All Customer</a
                 >
-              </li> --}}
+              </li>
             </ul>
           </div>
         </li>
@@ -123,7 +123,7 @@
           </a>
           <div class="collapse" id="Product">
             <ul class="nav-second-level">
-              {{-- <li>
+              <li>
                 <a href="{{ route('all.category') }}" class="tp-link"
                   >All Categories</a
                 >
@@ -132,7 +132,7 @@
                 <a href="{{ route('all.product') }}" class="tp-link"
                   >All Products</a
                 >
-              </li> --}}
+              </li>
             </ul>
           </div>
         </li>

@@ -2,8 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\WareHouseController;
+use App\Http\Controllers\Backend\SupplierController;
+use App\Http\Controllers\Backend\CustomerController;
+use App\Http\Controllers\Backend\ProductController;
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -31,4 +35,71 @@ Route::middleware('auth')->group(function () {
   Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
   Route::post('/profile/store', [AdminController::class, 'ProfileStore'])->name('profile.store');
   Route::post('/admin/password/update', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
+}); 
+
+
+/* ----- All the routes ----- */
+Route::middleware('auth')->group(function () {
+
+  /* ----- Brand route ----- */ 
+  Route::controller(BrandController::class)->group(function(){
+    Route::get('/all/brand', 'AllBrand')->name('all.brand');
+    Route::get('/add/brand', 'AddBrand')->name('add.brand');
+    Route::post('/store/brand', 'StoreBrand')->name('store.brand');
+    Route::get('/edit/brand/{id}', 'EditBrand')->name('edit.brand');
+    Route::post('/update/brand', 'UpdateBrand')->name('update.brand');
+    Route::get('/delete/brand/{id}', 'DeleteBrand')->name('delete.brand');
+  });
+
+  /* ----- Warehouse route ----- */
+  Route::controller(WareHouseController::class)->group(function(){
+    Route::get('/all/warehouse', 'AllWareHouses')->name('all.warehouse');
+    Route::get('/add/warehouse', 'AddWareHouse')->name('add.warehouse');
+    Route::post('/store/warehouse', 'StoreWareHouse')->name('store.warehouse');
+    Route::get('/edit/warehouse/{id}', 'EditWareHouse')->name('edit.warehouse');
+    Route::post('/update/warehouse', 'UpdateWareHouse')->name('update.warehouse');
+    Route::get('/delete/warehouse/{id}', 'DeleteWareHouse')->name('delete.warehouse');
+  });
+
+
+  // Supplier Manager Route
+  Route::controller(SupplierController::class)->group(function(){
+    Route::get('/all/supplier', 'AllSupplier')->name('all.supplier');
+    Route::get('/add/supplier', 'AddSupplier')->name('add.supplier');
+    Route::post('/store/supplier', 'StoreSupplier')->name('store.supplier');
+    Route::get('/edit/supplier/{id}', 'EditSupplier')->name('edit.supplier');
+    Route::post('/update/supplier', 'UpdateSupplier')->name('update.supplier');
+    Route::get('/delete/supplier/{id}', 'DeleteSupplier')->name('delete.supplier');
+  });
+
+  // Customer Manager Route
+  Route::controller(CustomerController::class)->group(function(){
+    Route::get('/all/customer', 'AllCustomer')->name('all.customer');
+    Route::get('/add/customer', 'AddCustomer')->name('add.customer');
+    Route::post('/store/customer', 'StoreCustomer')->name('store.customer');
+    Route::get('/edit/customer/{id}', 'EditCustomer')->name('edit.customer');
+    Route::post('/update/customer', 'UpdateCustomer')->name('update.customer');
+    Route::get('/delete/customer/{id}', 'DeleteCustomer')->name('delete.customer');
+  });
+
+  // Category Manager Route
+  Route::controller(ProductController::class)->group(function(){
+    Route::get('/all/category', 'AllCategory')->name('all.category');
+    Route::post('/store/category', 'StoreCategory')->name('store.category');
+    Route::get('/edit/category/{id}', 'EditCategory');
+    Route::post('/update/category', 'UpdateCategory')->name('update.category');
+    Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
+  });
+
+
+  // All Products Manager Route
+  Route::controller(ProductController::class)->group(function(){
+    Route::get('/all/product', 'AllProduct')->name('all.product');
+    Route::get('/add/product', 'AddProduct')->name('add.product');
+    Route::post('/store/product', 'StoreProduct')->name('store.product');
+    Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
+    Route::post('/update/product', 'UpdateProduct')->name('update.product');
+    Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
+    Route::get('/details/product/{id}', 'DetailsProduct')->name('details.product');
+  });
 }); 

@@ -101,7 +101,7 @@
             aria-expanded="false"
           >
             <img
-              src="{{ (!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg') }}"
+              src="{{ (!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no-profile-image.jpg') }}"
               alt="user-image"
               class="rounded-circle"
             />
@@ -117,8 +117,7 @@
 
             <!-- item-->
             <a
-              {{-- {{ route('admin.profile') }} --}}
-              href=""
+              href="{{ route('admin.profile') }}"
               class="dropdown-item notify-item"
             >
               <i class="mdi mdi-account-circle-outline fs-16 align-middle"></i>
@@ -135,8 +134,8 @@
 
             <!-- item-->
             <a
-              {{-- {{ route('admin.logout') }} --}}
-              href=""
+              
+              href="{{ route('admin.logout') }}"
               class="dropdown-item notify-item"
             >
               <i class="mdi mdi-location-exit fs-16 align-middle"></i>
